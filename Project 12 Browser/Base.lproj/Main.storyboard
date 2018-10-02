@@ -1,24 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project_12_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19k-vt-oBc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="UvR-lw-WEU" appends="YES" id="gco-iq-zeR"/>
+                                </connections>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Dbx-pc-ffn">
+                                <rect key="frame" x="6" y="26" width="363" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKa-Zb-iDb">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" textContentType="url"/>
+                                    </textField>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="Ard-65-qp1">
+                                        <rect key="frame" x="305" y="5" width="20" height="20"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ard-65-qp1" secondAttribute="height" multiplier="1:1" id="WBL-35-ASw"/>
+                                            <constraint firstAttribute="width" constant="20" id="lGL-H4-QxQ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="FBU-vM-deM" appends="YES" id="YlF-aZ-AHz"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfP-vE-THg">
+                                        <rect key="frame" x="333" y="5" width="30" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="lSO-ck-08L"/>
+                                            <constraint firstAttribute="height" constant="20" id="vMZ-jt-dVs"/>
+                                        </constraints>
+                                        <state key="normal" title="GO">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EmS-YY-y7u"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fC0-qa-JM8">
+                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="LK1-Eb-hEI">
+                                <rect key="frame" x="0.0" y="62" width="375" height="2"/>
+                            </progressView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laW-mB-cna">
+                                <rect key="frame" x="142" y="517" width="90" height="75"/>
+                                <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refresh" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-kf-78C">
+                                        <rect key="frame" x="15" y="7.5" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="f0p-mh-qon"/>
+                                            <constraint firstAttribute="height" constant="60" id="lIr-ZC-iCY"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="ANh-bh-Zs1"/>
+                                    <constraint firstItem="OUk-kf-78C" firstAttribute="centerX" secondItem="laW-mB-cna" secondAttribute="centerX" id="Nfx-Pj-0dm"/>
+                                    <constraint firstItem="OUk-kf-78C" firstAttribute="centerY" secondItem="laW-mB-cna" secondAttribute="centerY" id="UMc-KD-see"/>
+                                    <constraint firstAttribute="height" constant="75" id="xhr-LC-Qhn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="laW-mB-cna" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1dj-Sl-Gej"/>
+                            <constraint firstItem="LK1-Eb-hEI" firstAttribute="leading" secondItem="19k-vt-oBc" secondAttribute="leading" id="AKD-Ky-8Ug"/>
+                            <constraint firstItem="fC0-qa-JM8" firstAttribute="top" secondItem="Dbx-pc-ffn" secondAttribute="bottom" constant="6" id="BxS-Eb-NOh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="laW-mB-cna" secondAttribute="bottom" constant="75" id="DiR-oO-hdi"/>
+                            <constraint firstItem="fC0-qa-JM8" firstAttribute="top" secondItem="19k-vt-oBc" secondAttribute="bottom" id="J8p-uI-IKP"/>
+                            <constraint firstItem="Dbx-pc-ffn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="6" id="M7J-xG-gkC"/>
+                            <constraint firstItem="LK1-Eb-hEI" firstAttribute="top" secondItem="19k-vt-oBc" secondAttribute="bottom" id="N0H-66-hcV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fC0-qa-JM8" secondAttribute="trailing" id="Nli-DG-uAY"/>
+                            <constraint firstItem="LK1-Eb-hEI" firstAttribute="width" secondItem="19k-vt-oBc" secondAttribute="width" id="Nxw-iq-ogW"/>
+                            <constraint firstItem="19k-vt-oBc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q8i-4L-1o1"/>
+                            <constraint firstItem="Dbx-pc-ffn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="WCP-eG-dT6"/>
+                            <constraint firstItem="19k-vt-oBc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dos-Dv-mK1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dbx-pc-ffn" secondAttribute="trailing" constant="6" id="lex-h3-VwZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="19k-vt-oBc" secondAttribute="trailing" id="mtG-bO-VWg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fC0-qa-JM8" secondAttribute="bottom" id="qEC-g9-uny"/>
+                            <constraint firstItem="fC0-qa-JM8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xhl-Av-uhp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addressBar" destination="lKa-Zb-iDb" id="gKg-lV-MKd"/>
+                        <outlet property="progressBar" destination="LK1-Eb-hEI" id="cCM-i7-jIq"/>
+                        <outlet property="reloadBkg" destination="laW-mB-cna" id="1l0-nb-xym"/>
+                        <outlet property="webview" destination="fC0-qa-JM8" id="C3j-8K-Vor"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FBU-vM-deM">
+                    <connections>
+                        <action selector="search:" destination="BYZ-38-t0r" id="PAy-kn-3jD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="UvR-lw-WEU">
+                    <connections>
+                        <action selector="reload:" destination="BYZ-38-t0r" id="d6p-8n-Dnm"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="refresh" width="30" height="30"/>
+        <image name="search" width="30" height="30"/>
+    </resources>
 </document>
